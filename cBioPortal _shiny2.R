@@ -197,7 +197,7 @@ ui <- dashboardPage(
           box(width = 5, title = "Vital status (donut)", status = "primary", solidHeader = TRUE,
               plotlyOutput("vital_donut", height = 320)),
           box(width = 5, title = "Age distribution by gender (violin + box)", status = "info", solidHeader = TRUE,
-              plotlyOutput("age_violin", height = 340))
+              plotlyOutput("age_violin", height = 320))
         )
       ),
       # -------------------- DEMOGRAPHY --------------------
