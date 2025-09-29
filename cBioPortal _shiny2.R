@@ -43,7 +43,7 @@
 #		1) User selects a study → fetch data via cbio_cases_for_study()
 #		2) Filters applied (gender, age, stage, vital)
 #		3) Filtered dataset updates dynamically
-#		4) KPIs + charts update
+#		4) Key indicators + charts update
 #		5) User can view/export filtered case table
 #
 #		
