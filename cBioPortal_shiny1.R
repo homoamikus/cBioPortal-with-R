@@ -3,7 +3,7 @@
 # 		NAME:		cBioPortal_shiny1.R
 #
 #
-# 		SUMMARY: 	The script creates the interactive Shiny dashboard ("cBioPortal Data - Single Study")
+# 		SUMMARY: 	The script creates the interactive Shiny dashboard ("cBioPortal Data - Single")
 #   	  			to explore clinical data for a single TCGA study using 
 #   	  			the cBioPortal API. The data is available on https://www.cbioportal.org/datasets.
 #
@@ -17,7 +17,7 @@
 #
 #		Tab:
 #		  • Browse:
-#		    - KPIs (cases, median age, gender %, alive %)
+#		    - Key indicators (cases, median age, gender %, alive %)
 #		    - Age histogram, gender distribution
 #		    - Tumor stage and primary diagnosis bars
 #		    - Sample cases table
