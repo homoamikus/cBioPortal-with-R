@@ -151,7 +151,7 @@ source("helpers.R")
 # 4. Create the ui parameter for the shiny app
 
 ui <- dashboardPage(
-  dashboardHeader(title = "cBioPortal Data - Single Study"),
+  dashboardHeader(title = "cBioPortal Data - Single"),
   dashboardSidebar(
     sidebarMenu(menuItem("Browse", tabName = "browse", icon = icon("flask"))),
     br(),
