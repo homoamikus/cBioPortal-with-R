@@ -148,7 +148,7 @@ BiocManager::install("cBioPortalData")
 
 source("helpers.R")
 
-# 4. Create the ui parameter for the shiny app
+# 3. Create the ui parameter for the shiny app
 
 ui <- dashboardPage(
   dashboardHeader(title = "cBioPortal Data - Single"),
@@ -177,7 +177,7 @@ ui <- dashboardPage(
         fluidRow(
           box(width = 6, title = "Tumor stage (top categories)", status = "info", solidHeader = TRUE,
               plotlyOutput("stage_bar", height = 300)),
-          box(width = 6, title = "Primary diagnosis (top 10)", status = "info", solidHeader = TRUE,
+          box(width = 6, title = "Disease Type (top 3)", status = "info", solidHeader = TRUE,
               plotlyOutput("diag_bar", height = 300))
         ),
         fluidRow(
@@ -263,13 +263,13 @@ server <- function(input, output, session) {
 
   output$diag_bar <- renderPlotly({
     df <- cases() %>%
-      mutate(pd = if_else(is.na(primary_diagnosis) | primary_diagnosis == "", "(unknown)", as.character(primary_diagnosis))) %>%
-      count(pd, sort = TRUE) %>%
-      slice_head(n = 10)
-    p <- ggplot(df, aes(x = reorder(pd, n), y = n)) +
+      mutate(disease = if_else(is.na(disease_type) | disease_type == "", "(unknown)", as.character(disease_type))) %>%
+      count(disease, sort = TRUE) %>%
+      slice_head(n = 3)
+    p <- ggplot(df, aes(x = reorder(disease, n), y = n)) +
       geom_col(fill = "mediumpurple") +
       coord_flip() +
-      labs(x = "Primary diagnosis", y = "Cases", title = "Primary diagnosis (top 10)")
+      labs(x = "Disease type", y = "Cases", title = "Disease Type (top 3)")
     ggplotly(p)
   })
 
@@ -289,6 +289,7 @@ server <- function(input, output, session) {
       datatable(rownames = FALSE, options = list(pageLength = 10, scrollX = TRUE))
   })
 }
+
 # 5. Run the shiny app
 
 shinyApp(ui, server)
